@@ -1,0 +1,53 @@
+/* PROJECTS */
+
+.projects {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border: 1px solid; */
+    min-height: 600px;
+}
+
+.accordian {
+    /* border: 1px solid; */
+    width: 40%;
+    min-width: 400px;
+    margin: 0 10px;
+}
+.acc-title {
+    padding: 5px 5px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+}
+
+.pro-description {
+    opacity: .95;
+    
+}
+
+.tech-logos {
+    display: flex;
+    height: 30px;
+}
+
+.project-space {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+/* SUDOKU */
+
+.sudoku {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    width: 400px;
+    align-items: center;
+    /* border: 1px solid; */
+    padding: 10px 0;
+    height: 100%;
+}

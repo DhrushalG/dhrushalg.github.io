@@ -1,0 +1,65 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    position: relative;
+    min-height:600px;
+    height: 60vh;
+    max-height: 600px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* transition: background 1s ease-in-out; */
+}
+
+.logo {
+    max-width: 50px;
+    max-height: 50px;
+    margin: 5px 5px;
+}
+
+.overlay {
+    position: absolute;
+    background: rgba(130, 130, 130, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    /* transition: opacity 0.5s; */
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-color: transparent;
+    }
+    51%, 100% {
+        border-color: black;
+    }
+}
+
+.typing-container {
+    text-align: left;
+    align-items: center;
+    min-width: 26ch;
+}
+
+.typing-effect {
+    display: inline-block;
+    margin-top: 3px;
+    white-space: nowrap;
+    border-right: 2px solid black;
+    font-weight: bold;
+    animation: blink .75s step-end infinite;
+}
+.gradient {
+    /* border: 1px solid black; */
+    background: linear-gradient(90deg, rgb(0, 0, 0) 50%, rgb(98, 0, 255) 99% 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
