@@ -45,21 +45,18 @@ html {
 
 .typing-container {
     text-align: left;
-    align-items: center;
-    min-width: 26ch;
+    min-width: 30ch;
 }
 
 .typing-effect {
     display: inline-block;
-    margin-top: 3px;
     white-space: nowrap;
-    border-right: 2px solid black;
+    border-right: 2px solid black !important;
     font-weight: bold;
     animation: blink .75s step-end infinite;
 }
 .gradient {
-    /* border: 1px solid black; */
-    background: linear-gradient(90deg, rgb(0, 0, 0) 50%, rgb(98, 0, 255) 99% 100%);
+    background: linear-gradient(90deg, rgb(0, 0, 0) 50%, rgb(85, 0, 255) 99% 100%);
     -webkit-background-clip: text;
     color: transparent;
 }

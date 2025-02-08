@@ -7,6 +7,7 @@ import TypingEffect from './TypingEffect';
 const Home = () => {
     return (
         <div>
+            <title>Home</title>
             <section className="hero" id="hero-1" style={{ backgroundImage: `url(${waves})` }}>
                 <div className="overlay">
                     <p className='text-2xl xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl pb-2'>

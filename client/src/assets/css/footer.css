@@ -1,7 +1,8 @@
 footer {
-    position: relative;
+    /* position: relative; */
     text-align: center;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
+    width: 100%;
 }
 
 .footer-line {
@@ -18,9 +19,9 @@ footer {
 .footer-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 /* Centering the Plant in the Background */

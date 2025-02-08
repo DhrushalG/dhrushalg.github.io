@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="footer-container">
                 {/* Left Column */}
                 <div>
-                    <h3 className="text-2xl font-semibold">Dhrushal Gada</h3>
+                    <h3 className="text-xl font-semibold">Dhrushal Gada</h3>
                     <p className="mt-2">Passionate web developer with expertise in front-end and back-end technologies.</p>
                     <div className="mt-4">
                         <a href="https://linkedin.com/in/dhrushalgada" className="text-blue-400 hover:text-blue-600">LinkedIn</a> | 

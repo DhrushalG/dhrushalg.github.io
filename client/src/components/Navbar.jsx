@@ -44,10 +44,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
                 {/* Dropdown menu for mobile */}
                 <nav className={` ${menuOpen ? 'block' : 'hidden'} navdrop md:hidden`}>
-                    <a href="#home" className="block px-4 py-2 hover:text-purple-700">Home</a>
-                    <a href="#about" className="block px-4 py-2 hover:text-purple-700">About</a>
-                    <a href="#skills" className="block px-4 py-2 hover:text-purple-700">Skills</a>
-                    <a href="#projects" className="block px-4 py-2 hover:text-purple-700">Projects</a>
+                    <a href="#home" className="block px-4 py-2 hover:text-purple-700 text-white">Home</a>
+                    <a href="#about" className="block px-4 py-2 hover:text-purple-700 text-white">About</a>
+                    <a href="#skills" className="block px-4 py-2 hover:text-purple-700 text-white">Skills</a>
+                    <a href="#projects" className="block px-4 py-2 hover:text-purple-700 text-white">Projects</a>
                 </nav>
             </div>
             

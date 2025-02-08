@@ -46,7 +46,7 @@ const Projects = () => {
                         <div key={id} className="rounded">
                             <nav
                                 onClick={() => handleAccordionClick(id)}
-                                className="acc-title hover:bg-gray-500 rounded p-2 flex justify-between"
+                                className="acc-title hover:bg-purple-700 rounded p-2 flex justify-between text-white"
                             >
                                 <span>{myProjects[id].name}</span>
                                 <span>{selectedProject === id ? "▲" : "▼"}</span>

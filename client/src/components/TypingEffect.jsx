@@ -42,8 +42,8 @@ const TypingEffect = () => {
     }, [charIndex, isDeleting, phraseIndex]);
     return (
         <div className='flex'>
-            <p className='text-1xl md:text-3xl sm:text-2xl mr-5 p-1'>I am a </p>
-            <span className="typing-effect gradient h-8"> {text}&nbsp;</span>
+            <p className='text-2xl md:text-3xl sm:text-2xl mr-3'>I am a </p>
+            <span className="text-2xl md:text-3xl sm:text-2xl typing-effect gradient"> {text}&nbsp;</span>
         </div>
     );
 };
