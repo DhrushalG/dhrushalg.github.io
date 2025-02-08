@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.18cd3669.css",
-    "main.js": "/static/js/main.3c83be60.js",
+    "main.css": "/static/css/main.1e462392.css",
+    "main.js": "/static/js/main.4d92c8bd.js",
     "static/js/488.5dc00adb.chunk.js": "/static/js/488.5dc00adb.chunk.js",
     "static/media/r-logo.png": "/static/media/r-logo.0689d33971de2d55c378.png",
     "static/media/fog.png": "/static/media/fog.f0d656291219001b4d8e.png",
     "static/media/aboutme1.jpg": "/static/media/aboutme1.1ff5e94a6be6ed8ddeb7.jpg",
     "static/media/java-logo.png": "/static/media/java-logo.0ee5cc3fd9f0672c0488.png",
     "static/media/tailwind-logo.png": "/static/media/tailwind-logo.3549d9e451d7abb96934.png",
+    "static/media/GadaResume.pdf": "/static/media/GadaResume.7fe129016d62eccf7bf7.pdf",
     "static/media/DotNet.png": "/static/media/DotNet.3b9610434822aec5e666.png",
     "static/media/Csharp-logo.png": "/static/media/Csharp-logo.a982ff0a817e96f04fd0.png",
     "static/media/sci-kit-logo.png": "/static/media/sci-kit-logo.0bc817d65515cbffcbce.png",
@@ -24,12 +25,12 @@
     "static/media/GitHub.png": "/static/media/GitHub.987334e9f782cc505f25.png",
     "static/media/ts-logo.png": "/static/media/ts-logo.5585b0b1bc09a9004d23.png",
     "index.html": "/index.html",
-    "main.18cd3669.css.map": "/static/css/main.18cd3669.css.map",
-    "main.3c83be60.js.map": "/static/js/main.3c83be60.js.map",
+    "main.1e462392.css.map": "/static/css/main.1e462392.css.map",
+    "main.4d92c8bd.js.map": "/static/js/main.4d92c8bd.js.map",
     "488.5dc00adb.chunk.js.map": "/static/js/488.5dc00adb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.18cd3669.css",
-    "static/js/main.3c83be60.js"
+    "static/css/main.1e462392.css",
+    "static/js/main.4d92c8bd.js"
   ]
 }
