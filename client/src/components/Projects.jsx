@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Sudoku from "./Sudoku";
+import Sudoku from "../projects/sudoku/Sudoku";
+import Wordle from "../projects/wordle/Wordle";
 import "../assets/css/projects.css";
 import JavaScript from '../assets/images/js-logo.png';
 import ReactJs from '../assets/images/React-logo.png';
@@ -15,14 +16,14 @@ const Projects = () => {
     const myProjects = {
         1: { 
             name: "Sudoku", 
-            description: "A fun and challenging Sudoku game featuring various difficulty levels and a timer to track your speed. This application was built with React, utilizing state management to create a dynamic and engaging puzzle-solving experience.",
+            description: "Sudoku is a number puzzle game where players must fill a 9x9 grid with numbers from 1 to 9, ensuring that each number appears only once per row, column, and 3x3 subgrid. The game offers multiple difficulty levels, and a timer tracks the player's speed as they solve the puzzle. Built with React, it features dynamic state management to handle puzzle-solving interactions and provide a smooth user experience.",
             component: <Sudoku />,
             tech: [JavaScript, ReactJs, TailWind]
         },
         2: { 
-            name: "Project 2", 
-            description: "Description for Project 2",
-            component: <div>Project 2 content...</div>,
+            name: "Wordle", 
+            description: "Wordle is a word-guessing game where players have a limited number of attempts to guess the correct word. Feedback on each guess helps players deduce the correct word, with correct letters shown in green and incorrect ones in red. Built with React, the game logic manages player guesses and provides real-time feedback on each attempt to help players solve the puzzle.",
+            component: <Wordle />,
             tech: ["Node", "Express", "MongoDB"]
         },
         3: { 

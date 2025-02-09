@@ -1,0 +1,66 @@
+.sudoku {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.sudoku-grid {
+    width: 35px;
+    height: 35px;
+}
+
+.modal {
+    position: fixed;
+    top: 10;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.348);
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.number-pad {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.number-bubble {
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 8px;
+    border-radius: 20px;
+}
+
+

@@ -1,0 +1,152 @@
+/* General styling for Wordle */
+.wordle {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid; */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.reset-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: rgba(230, 49, 17, 0.875);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #ff1e00;
+}
+
+.guess-area {
+    height: 300px;
+}
+
+
+.guess-letter {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: rgb(255, 179, 0);
+}
+
+.red {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.guess-input {
+    padding: 7px;
+    width: 200px;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid;
+    
+}
+
+.submit-btn {
+    padding: 7px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+}
+
+.key {
+    padding: 7px;
+    background-color: #b6b6b6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.key:hover {
+    background-color: #3d3d3d7d;
+}
+
+.key.green {
+    background-color: green;
+}
+
+.key.orange {
+    background-color: rgb(255, 179, 0);
+}
+
+.key.red {
+    background-color: rgb(255, 0, 0);
+}
+
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.game-modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(150, 150, 150, 0.7);
+    z-index: 10;
+}

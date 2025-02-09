@@ -1,5 +1,3 @@
-/* PROJECTS */
-
 .projects {
     display: flex;
     justify-content: space-around;
@@ -7,12 +5,12 @@
     align-items: center;
     /* border: 1px solid; */
     min-height: 600px;
-    /* max-width: 90%; */
 }
 
 .accordian {
     /* border: 1px solid; */
-    width: 350px;
+    min-width: 300px;
+    max-width: 500px;
     margin: 0 auto;
 }
 .acc-title {
@@ -39,22 +37,4 @@
     margin: 0 auto;
     max-width: 75%;
     width: 400px;
-}
-/* SUDOKU */
-.sudoku {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* height: 100%; */
-    width: 350px;
-    align-items: center;
-    padding: 10px 0;
-    height: 100%;
-    margin: 0 auto;
-    max-width: 90%;
-}
-
-.sudoku-grid {
-    width: 35px;
-    height: 35px;
 }
