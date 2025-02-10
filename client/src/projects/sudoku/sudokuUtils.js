@@ -63,9 +63,8 @@ export const generatePuzzle = (level) => {
     return { puzzle, solvedGrid};
 };
 
-export const updateHighlights = (newGrid) => {
+export const updateDuplicates = (newGrid) => {
     let newHighlights = new Set();
-    // Check for duplicates in rows, columns, and subgrids
     for (let i = 0; i < 9; i++) {
         let rowNums = new Map();
         let colNums = new Map();

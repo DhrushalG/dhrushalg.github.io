@@ -63,4 +63,35 @@
     border-radius: 20px;
 }
 
+.selected-number-bubble {
+    background-color: #3b82f6 !important;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.dupe-cell {
+    background-color: #f63b3b !important;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cor-cell {
+    background-color: rgb(24, 179, 81) !important;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

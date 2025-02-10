@@ -5,29 +5,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .game-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     /* border: 1px solid; */
     margin-bottom: 10px;
-    width: 100%;
+    width: 90%;
 }
 
-.reset-btn {
+.wordle-btn {
     padding: 5px 10px;
-    font-size: 16px;
-    background-color: rgba(230, 49, 17, 0.875);
+    width: 60px;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.reset-btn:hover {
-    background-color: #ff1e00;
 }
 
 .guess-area {
@@ -43,47 +39,31 @@
     line-height: 35px;
     text-align: center;
     border-radius: 5px;
+        /* border: 1px solid; */
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(22, 163, 74);
+    color: white
 }
 
 .orange {
     background-color: rgb(255, 179, 0);
+    color: white
 }
 
-.red {
-    background-color: rgb(255, 0, 0);
-    color: white;
+.gray {
+    background-color: rgb(123, 123, 123);
+    opacity: .5;
 }
 
 .guess-input {
-    padding: 7px;
-    width: 200px;
+    padding: 6px;
+    width: 75%;
     border-radius: 5px;
     background: none;
     border: 1px solid;
     
-}
-
-.submit-btn {
-    padding: 7px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #45a049;
-}
-
-.keyboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .keyboard-row {
@@ -91,9 +71,22 @@
     justify-content: center;
 }
 
+.submit-btn {
+    margin-left: auto;
+    padding: 10px 15px;
+}
+
+.keyboard {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid; */
+}
+
 .key {
-    padding: 7px;
-    background-color: #b6b6b6;
+    padding: 4px 6px;
+    background-color: #999999;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -102,24 +95,24 @@
 }
 
 .key:hover {
-    background-color: #3d3d3d7d;
+    background-color: #616161;
 }
 
 .key.green {
-    background-color: green;
+    background-color: rgb(22, 163, 74);
 }
 
 .key.orange {
-    background-color: rgb(255, 179, 0);
+    background-color: rgb(255, 162, 0);
 }
 
-.key.red {
-    background-color: rgb(255, 0, 0);
+.key.disabled {
+    visibility: hidden;
 }
 
 .game-modal {
     position: fixed;
-    top: 0;
+    top: 10;
     left: 0;
     width: 100%;
     height: 100%;

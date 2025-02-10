@@ -42,15 +42,12 @@ const Projects = () => {
             </p>
             <div className="projects">
                 {/* Left Side: Accordion for project selection */}
-                <div className="accordian p-5 space-y-2">
+                <div className="accordian space-y-1">
                     {Object.keys(myProjects).map((id) => (
                         <div key={id} className="rounded">
-                            <nav
-                                onClick={() => handleAccordionClick(id)}
-                                className="acc-title hover:bg-purple-700 rounded p-2 flex justify-between text-white"
-                            >
+                            <nav onClick={() => handleAccordionClick(id)} className="acc-title hover:bg-purple-900 rounded" >
                                 <span>{myProjects[id].name}</span>
-                                <span>{selectedProject === id ? "▲" : "▼"}</span>
+                                <span className="">{selectedProject === id ? "▲" : "▼"}</span>
                             </nav>
                             {selectedProject === id && (
                                 <div className="pro-description p-3">

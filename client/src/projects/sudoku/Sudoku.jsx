@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import '../sudoku/sudoku.css';
-import {emptyGrid, deepCopyGrid, generatePuzzle, updateHighlights} from './sudokuUtils';
+import {emptyGrid, deepCopyGrid, generatePuzzle, updateDuplicates} from './sudokuUtils';
 
 const Sudoku = ({ darkMode }) => {
     const [grid, setGrid] = useState(emptyGrid());
@@ -12,7 +12,7 @@ const Sudoku = ({ darkMode }) => {
     const [errors, setErrors] = useState([]);
     const [checkAttempts, setCheckAttempts] = useState(3);
     const [gameOver, setGameOver] = useState(false);
-    const [highlightedCells, setHighlightedCells] = useState(new Set());
+    const [duplicatedCells, setDuplicatedCells] = useState(new Set());
     const [correctCells, setCorrectCells] = useState(new Set());
     const [modalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
@@ -39,7 +39,7 @@ const Sudoku = ({ darkMode }) => {
         setSolvedGrid(solvedGrid);
         setErrors([]);
         setCheckAttempts(3);
-        setHighlightedCells(new Set());
+        setDuplicatedCells(new Set());
         setTimer(0);
         setIsRunning(true);
         setGameOver(false);
@@ -51,26 +51,25 @@ const Sudoku = ({ darkMode }) => {
         for (let row = 0; row < 9; row++) {
             for (let col = 0; col < 9; col++) {
                 if (currentGrid[row][col] !== solvedGrid[row][col]) {
-                    return false; // If any cell doesn't match, the puzzle isn't solved
+                    return false;
                 }
             }
         }
-        // If all cells match, trigger success
         setModalMessage("Congratulations, you solved the puzzle!");
         setGameOver(true);
         setIsRunning(false);
         setModalOpen(true);
-        return true; // Puzzle is solved
+        return true;
     };
 
     const getCellClassName = (num, rIdx, cIdx) => {
-        let className = `text-center border sudoku-grid`;
+        let className = `text-center sudoku-grid relative bg-gray-400`;
         if (selectedNumber !== null && num === selectedNumber) {
-            className += " text-blue-600 font-bold";
+            className += " selected-number-bubble";
         }
-        if (originalGrid[rIdx][cIdx] !== 0) { //check
-            className += " bg-gray-500";
-        }
+        if (originalGrid[rIdx][cIdx] !== 0) {
+            className += " bg-gray-400";
+        } 
         return className;
     };
     
@@ -95,7 +94,7 @@ const Sudoku = ({ darkMode }) => {
         setCheckAttempts(3);
         setErrors([]);
         setGameOver(false);
-        setHighlightedCells(new Set());
+        setDuplicatedCells(new Set());
         setCorrectCells(new Set());
         setNumberCounts({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 });
     }
@@ -106,7 +105,7 @@ const Sudoku = ({ darkMode }) => {
             const newGrid = deepCopyGrid(grid);
             newGrid[row][col] = num;
             setGrid(newGrid);
-            setHighlightedCells(updateHighlights(newGrid));
+            setDuplicatedCells(updateDuplicates(newGrid));
             updateNumberCounts(newGrid);
             isPuzzleSolved(newGrid, solvedGrid);
         }
@@ -117,27 +116,47 @@ const Sudoku = ({ darkMode }) => {
         const newGrid = deepCopyGrid(grid);
         newGrid[row][col] = num;
         setGrid(newGrid);
-        setHighlightedCells(updateHighlights(newGrid));
+        setDuplicatedCells(updateDuplicates(newGrid));
         updateNumberCounts(newGrid);
     };
     
     const handleCellClick = (rIdx, cIdx) => {
-        if (selectedNumber !== null && originalGrid[rIdx][cIdx] === 0) {
+        const cellValue = grid[rIdx][cIdx];
+    
+        if (selectedNumber === "x" && originalGrid[rIdx][cIdx] === 0) {
+            updateGridCell(rIdx, cIdx, 0);
+        }
+        else if (originalGrid[rIdx][cIdx] !== 0) {
+            setSelectedNumber(cellValue);
+            setSelectedCell({ row: rIdx, col: cIdx });
+        } else if (selectedNumber !== null && originalGrid[rIdx][cIdx] === 0) {
             updateGridCell(rIdx, cIdx, selectedNumber);
+        }
+        if (numberCounts[cellValue] === 9) { // check hgere
+            setSelectedNumber(null);
+            return;
         }
     };
     
     const handleNumPadClick = (num) => {
-        setSelectedNumber((prev) => (prev === num ? null : num));
+        if (numberCounts[num] === 9) { // check hgere
+            setSelectedNumber(null);
+            return;
+        }
+        setSelectedNumber((prev) => (prev === num ? null : num)); 
         if (selectedCell) {
             const { row, col } = selectedCell;
-            if (originalGrid[row][col] === 0) {
+            if (num === "x") {
+                if (originalGrid[row][col] === 0) {
+                    updateGridCell(row, col, 0);
+                }
+            } else if (originalGrid[row][col] === 0) {
                 updateGridCell(row, col, num);
             }
             setSelectedCell(null);
         }
     };
-
+    
     const handleCheck = () => {
         if (!isRunning) return;
     
@@ -148,12 +167,12 @@ const Sudoku = ({ darkMode }) => {
         for (let row = 0; row < 9; row++) {
             for (let col = 0; col < 9; col++) {
                 let number = grid[row][col];
-                if (number !== 0) {
-                    if (number !== solvedGrid[row][col]) {
+                if (number !== 0 && originalGrid[row][col] === 0) {
+                    if (number === solvedGrid[row][col]) {
+                        newCorrectCells.add(`${row}-${col}`);
+                    } else {
                         newErrors.push(`${row}-${col}`);
                         isSolved = false;
-                    } else {
-                        newCorrectCells.add(`${row}-${col}`);
                     }
                 } else {
                     isSolved = false;
@@ -186,7 +205,7 @@ const Sudoku = ({ darkMode }) => {
             <div className="p-3">
                 <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} 
                 className={`p-1 rounded bg-gray-500 `}>
-                    <option value="" selected disabled >Difficulty</option>
+                    <option value="" className="text-white" selected disabled >Difficulty</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
@@ -212,21 +231,24 @@ const Sudoku = ({ darkMode }) => {
                             ${rIdx % 3 === 2 && rIdx !== 8 ? "mb-1" : ""} 
                             ${cIdx % 3 === 2 && cIdx !== 8 ? "mr-1" : ""} 
                             ${rIdx % 3 === 0 && rIdx !== 0 ? "border-t-2 border-black" : ""} 
-                            ${cIdx % 3 === 0 && cIdx !== 0 ? "border-l-2 border-black" : ""}`}>
+                            ${cIdx % 3 === 0 && cIdx !== 0 ? "border-l-2 border-black" : ""}
+                            ${originalGrid[rIdx][cIdx] === 0 ? "bg-gray-400" : ""}`
+                            } onClick={() => handleCellClick(rIdx, cIdx)}>
                             <div>
+                        
                             <input
                                 type="text"
                                 maxLength="1"
                                 value={num || ""}
-                                disabled={originalGrid[rIdx][cIdx] !== 0}
+                                readOnly={originalGrid[rIdx][cIdx] !== 0}
                                 onChange={(e) => handleChange(rIdx, cIdx, e.target.value)}
                                 onClick={() => handleCellClick(rIdx, cIdx)}
-                                className={`sudoku-grid text-center border
+                                className={`sudoku-grid text-center border cursor-pointer font-bold
                                     ${getCellClassName(num, rIdx, cIdx)} 
                                     ${errors.includes(`${rIdx}-${cIdx}`) ? "bg-red-300" : ""}
-                                    ${highlightedCells.has(`${rIdx}-${cIdx}`) ? "bg-red-600" : ""}
+                                    ${duplicatedCells.has(`${rIdx}-${cIdx}`) ? "dupe-cell" : ""}
                                     ${originalGrid[rIdx][cIdx] !== 0 ? "" : "bg-gray-400 text-black"}
-                                    ${correctCells.has(`${rIdx}-${cIdx}`) ? "bg-green-400" : ""}`}
+                                    ${correctCells.has(`${rIdx}-${cIdx}`) && grid[rIdx][cIdx] !== 0 ? "cor-cell" : ""}`}
                                 style={{ background: originalGrid[rIdx][cIdx] !== 0 ? "none" : "" }}
                             />
                         </div>
@@ -238,8 +260,9 @@ const Sudoku = ({ darkMode }) => {
 
             <div className="number-pad mt-2 flex flex-wrap gap-2">
                 {[...Array(9).keys()].map((num) => (
-                    <div key={num + 1} className={`number-bubble ${
-                        selectedNumber === num + 1 ? "bg-blue-600 text-white" : ""}`}
+                    <div key={num + 1} className={`number-bubble 
+                        ${selectedNumber === num + 1 ? "bg-blue-600 text-white" : ""}
+                        ${numberCounts[num + 1] == 9 ? "cursor-not-allowed opacity-20 bg-green-500" : ""}`}
                         onClick={() => handleNumPadClick(num + 1)}>
                         <span className="text-lg font-bold">
                             {num + 1}
@@ -249,8 +272,12 @@ const Sudoku = ({ darkMode }) => {
                         </span>
                     </div>
                 ))}
+                <div className={`number-bubble
+                ${selectedNumber === "x" ? "bg-blue-600 text-white" : ""}`}
+                    onClick={() => handleNumPadClick("x")}>
+                    <span className="text-lg font-bold">X</span>
+                </div>
             </div>
-
 
             {/* Modal */}
             {modalOpen && (
