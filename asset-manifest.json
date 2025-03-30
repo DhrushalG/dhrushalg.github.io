@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2198fbce.css",
-    "main.js": "/static/js/main.7c843190.js",
+    "main.js": "/static/js/main.40f57d5b.js",
     "static/js/488.b51d605a.chunk.js": "/static/js/488.b51d605a.chunk.js",
     "static/media/r-logo.png": "/static/media/r-logo.0689d33971de2d55c378.png",
     "static/media/fog.png": "/static/media/fog.f0d656291219001b4d8e.png",
@@ -11,10 +11,10 @@
     "static/media/heatmap.png": "/static/media/heatmap.4a526f5b31a937da0b96.png",
     "static/media/wordCloud.png": "/static/media/wordCloud.8d0c8728c7903a49153f.png",
     "static/media/tailwind-logo.png": "/static/media/tailwind-logo.3549d9e451d7abb96934.png",
-    "static/media/GadaResume.pdf": "/static/media/GadaResume.7fe129016d62eccf7bf7.pdf",
     "static/media/cleanedWordCloud.png": "/static/media/cleanedWordCloud.3ab44179a752825cfba0.png",
     "static/media/table.png": "/static/media/table.dffbd86eb5b369f35456.png",
     "static/media/DotNet.png": "/static/media/DotNet.3b9610434822aec5e666.png",
+    "static/media/GadaResume.pdf": "/static/media/GadaResume.7b775eccb4acb4ebfb7d.pdf",
     "static/media/Csharp-logo.png": "/static/media/Csharp-logo.a982ff0a817e96f04fd0.png",
     "static/media/sci-kit-logo.png": "/static/media/sci-kit-logo.0bc817d65515cbffcbce.png",
     "static/media/MongoDb-logo.png": "/static/media/MongoDb-logo.94301d2db8cfbf6655f1.png",
@@ -41,11 +41,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.2198fbce.css.map": "/static/css/main.2198fbce.css.map",
-    "main.7c843190.js.map": "/static/js/main.7c843190.js.map",
+    "main.40f57d5b.js.map": "/static/js/main.40f57d5b.js.map",
     "488.b51d605a.chunk.js.map": "/static/js/488.b51d605a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2198fbce.css",
-    "static/js/main.7c843190.js"
+    "static/js/main.40f57d5b.js"
   ]
 }
